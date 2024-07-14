@@ -24,7 +24,6 @@ export async function addTodo(formData : FormData)
     {
         await sql`insert into todos (text,completed) values (${text},false)`;
         revalidatePath("/");
-        redirect("/");
         return { message: `Inserted new todo` };
     }
     catch(error)

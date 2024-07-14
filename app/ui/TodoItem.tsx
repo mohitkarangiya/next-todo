@@ -17,7 +17,6 @@ function ToggleTodo({id,completed}:{id:number,completed:boolean})
 {
     const formRef = useRef() as RefObject<HTMLFormElement>;
     const checkBoxRef = useRef() as RefObject<HTMLInputElement>;
-    console.log("Rerender");
 
     const handleSubmit = async (event:FormEvent<HTMLFormElement>) => {
         event.preventDefault();

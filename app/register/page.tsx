@@ -12,7 +12,7 @@ export default function Page()
                 <label className="text-2xl pt-3"htmlFor="password">Password</label>
                 <input className={inputClass} type="password" required name="password" id="password"/>
                 <label className="text-2xl pt-3"htmlFor="password">Confirm Password</label>
-                <input className={inputClass} type="password" required name="password" id="password"/>
+                <input className={inputClass} type="password" required name="confirmpassword" id="confirmpassword"/>
                 <button className="text-3xl shadow-md bg-blue-300 mt-10 rounded-3xl mx-6 hover:bg-white hover:text-black hover:rounded-lg transition-all" type="submit">Register</button>
             </form>
         </div>
