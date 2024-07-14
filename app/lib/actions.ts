@@ -2,8 +2,8 @@
 
 import { sql } from "@vercel/postgres";
 import { revalidatePath } from "next/cache";
-import { TodoItem } from "./definitions";
 import { z } from 'zod';
+import { redirect } from "next/navigation";
 
 const TodoSchema = z.object(
 {
@@ -24,6 +24,7 @@ export async function addTodo(formData : FormData)
     {
         await sql`insert into todos (text,completed) values (${text},false)`;
         revalidatePath("/");
+        redirect("/");
         return { message: `Inserted new todo` };
     }
     catch(error)
@@ -60,6 +61,6 @@ export async function markTodo(id:number,completed:boolean)
     catch(error)
     {
         console.error("Database Error",error);
-        throw new Error("Unable to delete Todo");
+        throw new Error("Unable to mark Todo");
     }
 }

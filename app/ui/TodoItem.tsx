@@ -15,15 +15,24 @@ export default function TodoItem({id,text,completed}:{id: number,text: string,co
 
 function ToggleTodo({id,completed}:{id:number,completed:boolean})
 {
-    const toggleTodoWithid = markTodo.bind(null,id,!completed);
     const formRef = useRef() as RefObject<HTMLFormElement>;
-    const handleCheckBoxChange = (event:FormEvent<HTMLInputElement>)=>
-    {
-        formRef.current?.requestSubmit();
-    }
+    const checkBoxRef = useRef() as RefObject<HTMLInputElement>;
+    console.log("Rerender");
+
+    const handleSubmit = async (event:FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        try {
+            await markTodo(id,!completed);
+          } catch (error) {
+            console.error('Error marking todo:', error);
+          } finally {
+            checkBoxRef.current.disabled = false; // Re-enable checkbox after submission
+          }
+    };
+
     return(
-        <form ref={formRef} action={toggleTodoWithid}>
-            <input onChange={handleCheckBoxChange} type="checkbox" className='size-8 mr-4 my-auto text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500' defaultChecked={completed}/>
+        <form ref={formRef} className='size-8 mx-2 my-auto ' onSubmit={handleSubmit} >
+            <input ref={checkBoxRef} onChange={(e)=>{e.target.disabled=true;formRef.current?.requestSubmit();}} type="checkbox" className='size-full text-blue-400 rounded-md focus:ring-0 focus:ring-offset-0' defaultChecked={completed}/>
         </form>
     )
 }
