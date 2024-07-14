@@ -26,7 +26,8 @@ function ToggleTodo({id,completed}:{id:number,completed:boolean})
           } catch (error) {
             console.error('Error marking todo:', error);
           } finally {
-            checkBoxRef.current.disabled = false; // Re-enable checkbox after submission
+            if(checkBoxRef.current)
+                checkBoxRef.current.disabled = false; // Re-enable checkbox after submission
           }
     };
 
