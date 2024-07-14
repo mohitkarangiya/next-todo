@@ -1,0 +1,1 @@
+export const inputClass = "text-2xl text-black focus:outline outline-2 outline-orange-500 rounded-lg p-1";

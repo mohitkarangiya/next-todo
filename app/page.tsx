@@ -1,7 +1,11 @@
-export default function Home()
+import TodoList from "./ui/TodoList";
+import NewTodo from "./ui/NewTodo";
+export default function Page()
 {
   return (
-    <main>
+    <main className="mx-auto max-w-screen-xl">
+      <TodoList/>
+      <NewTodo/>
     </main>
   );
 }
