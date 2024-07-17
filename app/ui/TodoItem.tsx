@@ -5,7 +5,7 @@ import { deleteTodo,markTodo } from '../lib/actions';
 export default function TodoItem({id,text,completed}:{id: number,text: string,completed: boolean})
 {
     return(
-        <div className='w-full mt-8 hover:bg-gray-200 lg:w-[50%] mx-auto flex'>
+        <div className=' mt-5 shadow-md hover:bg-blue-500 transition-all lg:hover:scale-105 hover:text-white bg-white rounded-md p-2 flex last:mb-20'>
             <ToggleTodo id={id} completed={completed}/>
             <span className={`flex-grow ${completed?"line-through":""} inset-y-0 text-3xl`}>{text}</span>
             <DeleteTodo id={id}/>
@@ -31,8 +31,9 @@ function ToggleTodo({id,completed}:{id:number,completed:boolean})
     };
 
     return(
-        <form ref={formRef} className='size-8 mx-2 my-auto ' onSubmit={handleSubmit} >
-            <input ref={checkBoxRef} onChange={(e)=>{e.target.disabled=true;formRef.current?.requestSubmit();}} type="checkbox" className='size-full text-blue-400 rounded-md focus:ring-0 focus:ring-offset-0' defaultChecked={completed}/>
+        <form ref={formRef} className='size-8 mx-2 flex-shrink-0 my-auto' onSubmit={handleSubmit} >
+            <input ref={checkBoxRef} onChange={(e)=>{e.target.disabled=true;formRef.current?.requestSubmit();}} type="checkbox" defaultChecked={completed}
+             className='size-full text-blue-400 rounded-full focus:ring-0 focus:ring-offset-0'/>
         </form>
     )
 }
@@ -41,8 +42,8 @@ function DeleteTodo({id}:{id:number})
 {
     const deleteTodoWithId = deleteTodo.bind(null,id);
     return(
-        <form className='bg-red-500 text-white' action={deleteTodoWithId}>
-        <button className='size-8 text-4xl'> X </button>
+        <form className=' text-white flex-shrink-0 my-auto' action={deleteTodoWithId}>
+        <button className='size-8 text-2xl bg-red-500'>X</button>
         </form>
     )
 }

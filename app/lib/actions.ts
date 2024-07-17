@@ -63,3 +63,13 @@ export async function markTodo(id:number,completed:boolean)
         throw new Error("Unable to mark Todo");
     }
 }
+
+export async function TimeWaster(timeToWaste : number)
+{
+    return new Promise((res)=>setTimeout(res,timeToWaste));
+}
+
+export async function testServerAction()
+{
+    console.log("Test Action called");
+}

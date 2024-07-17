@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={anaheim.className}>
+      <body className={`${anaheim.className} bg-slate-200`}>
         <NavBar/>
         {children}
       </body>
