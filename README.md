@@ -6,8 +6,8 @@ This project is a simple Todo List application built with Next.js. It serves as 
 * **App Router (Next.js 14):** Utilizing the new App Router for dynamic navigation and handling API routes efficiently.
 * **Optional: Authentication:** Implementing user authentication for secure access control and managing user data.
 * **Server Actions:** Exploring the capabilities of Next.js Server Actions for data fetching and managing business logic on the server-side.
-* **Database Integration**: Connecting to a database (e.g., PostgreSQL) to store and manage todo items persistently.
-* **Styling**: Implementing a modern and responsive UI using a styling library like Tailwind CSS.
+* **Database Integration:** Connecting to a database (e.g., PostgreSQL) to store and manage todo items persistently.
+* **Styling:** Implementing a modern and responsive UI using a styling library like Tailwind CSS.
 
 This project aims to provide a comprehensive learning experience for anyone interested in getting hands-on with Next.js and its latest features.
 
