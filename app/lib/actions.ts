@@ -14,8 +14,10 @@ const TodoSchema = z.object(
 
 const NewTodoSchema = TodoSchema.omit({id:true,completed:true});
 
-export async function addTodo(formData : FormData)
+export async function addTodo( prevState: { message: string }, formData : FormData )
 {
+    // await TimeWaster(3000);
+
     const {text} = NewTodoSchema.parse({
         text: formData.get("todoText"),
     });
@@ -29,7 +31,7 @@ export async function addTodo(formData : FormData)
     catch(error)
     {
         console.error("Database Error",error);
-        throw new Error("Unable to Add Todo");
+        return { message: `Error adding todo` };
     }
 }
 
@@ -40,7 +42,7 @@ export async function deleteTodo(id:number)
     {
         await sql`delete from todos where id = ${id}`;
         revalidatePath("/");
-        return { message: `Deleted Todo with id = ${id}` };
+        // return { message: `Deleted Todo with id = ${id}` };
     }
     catch(error)
     {

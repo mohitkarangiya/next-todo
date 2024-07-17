@@ -43,7 +43,7 @@ function DeleteTodo({id}:{id:number})
     const deleteTodoWithId = deleteTodo.bind(null,id);
     return(
         <form className=' text-white flex-shrink-0 my-auto' action={deleteTodoWithId}>
-        <button className='size-8 text-2xl bg-red-500'>X</button>
+        <button className='size-8 text-2xl bg-red-500 rounded-md'>X</button>
         </form>
     )
 }
